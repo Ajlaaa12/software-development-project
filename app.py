@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-vehicles_us = pd.read_csv('C:/Users/ajlam/OneDrive/Documents/GitHub/software-development-project/vehicles_us.csv', parse_dates=['date_posted'])
+vehicles_us = pd.read_csv('vehicles_us.csv', parse_dates=['date_posted'])
 print(vehicles_us.head())
 
 st.title("Vehicle Data Explorer")
