@@ -5,17 +5,17 @@ import plotly.express as px
 vehicles_us = pd.read_csv('C:/Users/ajlam/OneDrive/Documents/GitHub/software-development-project/vehicles_us.csv', parse_dates=['date_posted'])
 print(vehicles_us.head())
 
-st.title('Vehicle Data Exploration')
-st.header('Exploratory Data Analysis')
+st.title("Vehicle Data Explorer")
+st.header("Exploratory Data Analysis")
 
-st.subheader('Price Distribution Between Manufacturers')
-show_histogram = st.checkbox('Show Price Histogram')
+st.subheader("Price Distribution")
+show_histogram = st.checkbox("Show Price Histogram")
 if show_histogram:
-    fig_histogram = px.histogram(vehicles_us, x='manufacturer', y='price', title='Price Distribution Between Manufacturers', histfunc='avg')
+    fig_histogram = px.histogram(vehicles_us, x="price", nbins=30, title="Price Distribution")
     st.plotly_chart(fig_histogram)
 
-st.subheader('Price vs Odometer')
-show_scatter = st.altair_chart('Show Price vs Odometer Scatter Plot')
+st.subheader("Price vs Odometer")
+show_scatter = st.checkbox("Show Price vs Odometer Scatter Plot")
 if show_scatter:
-    fig_scatter = px.scatter(vehicles_us, x='odometer', y='price', title='Odometer vs Price', labels={'odometer': 'Odometer (miles)', 'price': 'Price ($)'})
+    fig_scatter = px.scatter(vehicles_us, x="odometer", y="price", title="Price vs Odometer")
     st.plotly_chart(fig_scatter)
